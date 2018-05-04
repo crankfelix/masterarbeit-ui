@@ -1,0 +1,309 @@
+@mixin bp-down($name) {
+	@media (max-width: $name) {
+		@content;
+	}
+}
+
+$bp-sm: 768px;
+
+html {
+	font-size: 62.5%;
+}
+
+html,
+body {
+	height: 100vh;
+	font-family: $font-default;
+	@include bp-down($bp-sm) {
+		height: auto;
+	}
+}
+
+body * {
+	box-sizing: border-box;
+	backface-visibility: hidden;
+}
+
+body {
+	background: url(../img/background@2x.jpg);
+	background-size: contain;
+	min-height: 100vh;
+	@include bp-down($bp-sm) {
+		background: url(../img/background_mobile@2x.jpg);
+		background-size: contain;
+	}
+}
+
+#introVideo {
+	position: fixed;
+	width: 100vw;
+	height: 100vh;
+	top:0;
+	z-index: 50;
+	video {
+		width: 100%;
+		height: auto;
+		@include bp-down($bp-sm) {
+			position: absolute;
+			width: auto;
+			height: 100vh;
+			left: 50%;
+			transform: translateX(calc((-50vh * 1.778)));
+		}
+	}
+}
+
+#myChart {
+	//width: 100% !important;
+	//height: 100% !important;
+}
+
+//hide old stuff
+#wrap {
+	display: none;
+}
+
+.main {
+	display: none;
+	flex-direction: column;
+	height: 100vh;
+	background: url(../img/background@2x.jpg);
+	background-size: contain;
+	position: relative;
+	overflow: hidden;
+	color: #fff;
+	@include bp-down($bp-sm) {
+		background: url(../img/background_mobile@2x.jpg);
+		background-size: contain;
+		height: auto;
+		overflow: auto;
+	}
+	
+	&-bg {
+		
+		&_top {
+			
+			&_right {
+				position: absolute;
+				background: url(../img/top_right.png) no-repeat top right;
+				background-size: contain;
+				width: 54.5703125vw;
+				height: 62.361111111111vh;
+				top: 0;
+				right: 0;
+				z-index: 10;
+				@include bp-down($bp-sm) {
+//					background: url(../img/exa_bg_mobile_top@2x.png) no-repeat bottom right;
+//					width: 100%;
+//					height: 11vh;
+//					background-size: cover;
+					display: none;
+				}
+			}
+		}
+		
+		&_bottom {
+			
+			&_left {
+				position: absolute;
+				background: url(../img/bottom_left.png) no-repeat bottom left;
+				background-size: contain;
+				width: 100%;
+				height: 26.8%;
+				bottom: 0;
+				left: 0;
+				z-index: 10;
+				@include bp-down($bp-sm) {
+					display: none;
+				}
+			}
+		}
+		
+		&-headline {
+			position: relative;
+			background: url(../img/Headline.png) no-repeat top left;
+			background-size: contain;
+			width: 74.56%;
+			height: 236px;
+			left:0;
+			top: 17.112299465241%;
+			@include bp-down($bp-sm) {
+				left: 76%;
+				transform: translateX(-50%);
+				width: 100%;
+				top: 10px;
+				height: 0;
+				padding-bottom: 21%;
+			}
+		}
+
+	}
+	
+	
+	
+	&-top {
+		height: 26vh;
+		flex: 0 0 auto;
+		display: flex;
+		@include bp-down($bp-sm) {
+			flex-direction: column-reverse;
+			align-items: flex-end;
+			height: auto;
+		}
+		
+		&-left {
+			width: 16.7vw;
+			flex: 0 0 auto;
+			position: relative;
+			
+			@include bp-down($bp-sm) {
+				display: none;
+			}
+		}
+		
+		&-middle {
+			position: relative;
+			flex: 1 1 auto;
+			width: 100%;
+			@include bp-down($bp-sm) {
+				padding-top: 70px;
+			}
+		}
+		
+		&-right {
+			width: 24.6vw;
+			flex: 0 0 auto;
+			@include bp-down($bp-sm) {
+				flex: 0 1 auto;
+				width: 100%;
+				background: url(../img/exa_bg_mobile_top@2x.png) no-repeat bottom right;
+				height: auto;
+				background-size: cover;
+				padding-bottom: 30px;
+				position: fixed;
+				top: 0;
+			}
+		}
+	}
+	
+	&-content {
+		flex: 1 1 auto;
+		display: flex;
+		justify-content: center;
+		@include bp-down($bp-sm) {
+//			flex-wrap: wrap;
+			flex-direction: column;
+			margin-top: 10px;
+		}
+		
+		&-left {
+			width: 50%;
+			padding-left: 2.1875%; 
+			padding-right: 1.7578125%;
+			display: flex;
+			flex: 1 1 auto;
+			@include bp-down($bp-sm) {
+				padding: 0 16px;
+				flex: 1 0 auto;
+				width: 100%;
+			}
+		}
+		
+		&-right {
+			width: 50%;
+			padding-left: 1.7578125%;
+			padding-right: 5.703125%;
+			display: flex;
+			flex: 1 1 auto;
+			@include bp-down($bp-sm) {
+				padding: 30px 16px;
+				padding-bottom: 90px;
+				width: 100%;
+				height: 340px;
+			}			
+		}
+		
+		&-frame {
+			width: 100%;
+			background: #000;
+			position: relative;
+			background: linear-gradient(to bottom, rgba(32,41,53,0) 0%,rgba(32,42,54,1) 30%,rgba(32,42,54,1) 50%,rgba(32,42,54,1) 70%,rgba(33,41,52,0) 100%);
+			box-shadow: 0px 12px 41px -4px rgba(14, 12, 19, 0.2);
+			
+			&:before,
+			&:after {
+				content: '';
+				display: block;
+				position: absolute;
+				width: 1px;
+				height: 100%;
+				left: 0;
+				top: 0;
+				background: linear-gradient(to bottom, rgba(134,220,235,0) 0%,rgba(134,220,235,1) 50%,rgba(134,220,235,0) 100%);
+			}
+			
+			&:after {
+				left: auto;
+				right: 0;
+			}
+
+		}
+		
+	}
+	
+	&-bottom {
+		flex: 0 0 auto;
+		margin-top: auto;
+		height: 24vh;
+		position: relative;
+		z-index: 30;
+		display: flex;
+		@include bp-down($bp-sm) {
+			height: 70px;
+			position: fixed;
+			bottom: 0;
+			width: 100%;
+			background: url(../img/exa_bg_mobile_bot@2x.png);
+			background-size: cover;
+		}
+		
+		&-left {
+			flex: 1 1 auto;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			position: relative;
+			padding: 0 2.5%;
+			@include bp-down($bp-sm) {
+				padding: 0 16px;
+				width: 100%;
+			}
+			
+			h2 {
+				margin-top: get-vw(80px);
+				@include bp-down($bp-sm) {
+					display: none;
+				}
+			}
+		}
+		
+		&-right {
+			flex: 0 0 auto;
+			width: 31.25%;
+			position: relative;
+			display: flex;
+			justify-content: center;
+			@include bp-down($bp-sm) {
+				display: none;
+			}
+		}
+	}
+}
+
+
+.sphere{
+	background: url(../img/shapes_logo@2x.png);
+	background-size: contain;
+	width: 100%;
+	height: auto;
+}

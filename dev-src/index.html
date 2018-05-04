@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Project Enera</title>
+    <link rel="stylesheet" href="css/style.css">
+
+<!--    <script type="application/javascript">
+        function readUriParameter(uri, paramName) {
+            var value, matches;
+            matches = uri.match(new RegExp(paramName + "=([^&]+)"));
+            if (matches && matches.length > 1) {
+                value = decodeURIComponent(matches[1]);
+            }
+            return value;
+        }
+
+        const token = readUriParameter(location.href, "token");
+        if (token) {
+            localStorage.setItem('token', JSON.stringify({
+                value: token,
+                expires: (new Date().getTime()) + (1380 * 1000)
+            }));
+            location.href = location.href.substr(0, location.href.indexOf("?"));
+        }
+        if (!localStorage.getItem('token') || JSON.parse(localStorage.getItem('token')).expires < (new Date().getTime())) {
+            localStorage.clear();
+            location.href = "https://smart-mirror.cfapps.eu10.hana.ondemand.com/api/auth?callback=" + location.href;
+        }
+    </script>-->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+    <script src="js/scripts.js"></script>
+</head>
+
+<body>
+    <div id="introVideo">
+        <video src="./img/intro.mp4" width="100%" muted playsinline autoplay loop></video>
+        <div id="systemInfo_processing" class="systemInfo systemInfo_intro">
+            <div class="systemInfo-left">
+                <div class="systemInfo-outerRing">
+                    <div class="systemInfo-spinner systemInfo-spinner_01"></div>
+                    <div class="systemInfo-innerRing">
+                        <div class="systemInfo-innerRing-count" id="systemInfo_processing_text"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="main">
+        <div class="main-bg_top_right"></div>
+        <div class="main-bg_bottom_left"></div>
+
+        <div class="main-top">
+            <div class="main-top-left">
+                <canvas id="canvasOne" width="300" height="300" class="sphere" />
+            </div>
+            <div class="main-top-middle">
+                <div class="main-bg-headline"></div>
+            </div>
+            <div class="main-top-right">
+                <div class="userInfo">
+                    <div class="userInfo-left">
+                        <div id="userInfo-lvl-count" class="userInfo-lvl-count">01</div>
+                        <div class="userInfo-lvl-label">Level</div>
+                    </div>
+                    <div class="userInfo-middle">
+                        <div class="userInfo-name">Hanna</div>
+                        <div class="userInfo-credits">
+                            <div class="userInfo-credits-balken">
+                                <img src="./img/XP_Colored@2x.png" alt="">
+                            </div>
+                            <div class="userInfo-credits-text">
+                                Credits -
+                                <span id="credits-text">25</span> / 100
+                            </div>
+                        </div>
+                    </div>
+                    <div class="userInfo-right">
+                        <div class="userInfo-avatar"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="main-content-left">
+                <div class="timeModule main-content-frame">
+
+                    <h2>Has been running for</h2>
+                    <div class="timeModule-stopwatch">
+                        <div class="timeModule-stopwatch-item">
+                            <div class="timeModule-stopwatch-time">
+                                <span id="hours">00</span>
+                                <span>:</span>
+                            </div>
+                            <div class="timeModule-stopwatch-label">hrs</div>
+                        </div>
+                        <div class="timeModule-stopwatch-item">
+                            <div class="timeModule-stopwatch-time">
+                                <span id="minutes">00</span>
+                                <span>:</span>
+                            </div>
+                            <div class="timeModule-stopwatch-label">min</div>
+                        </div>
+                        <div class="timeModule-stopwatch-item">
+                            <div class="timeModule-stopwatch-time">
+                                <span id="seconds">00</span>
+                            </div>
+                            <div class="timeModule-stopwatch-label">sec</div>
+                        </div>
+                    </div>
+
+                    <div class="timeModule-range">
+                        <div class="timeModule-range-item" id="fwdTime">
+                            <div class="timeModule-range-left">
+                                <div class="timeModule-range-slider">
+                                    <div class="timeModule-range-slider-inner"></div>
+                                </div>
+                                <h2>Forward time per example</h2>
+                            </div>
+                            <div class="timeModule-range-right">
+                                <div class="timeModule-range-count"></div>
+                            </div>
+                        </div>
+                        <div class="timeModule-range-item" id="backdropTime">
+                            <div class="timeModule-range-left">
+                                <div class="timeModule-range-slider">
+                                    <div class="timeModule-range-slider-inner"></div>
+                                </div>
+                                <h2>Backdrop time per example</h2>
+                            </div>
+                            <div class="timeModule-range-right">
+                                <div class="timeModule-range-count"></div>
+                            </div>
+                        </div>
+                        <div class="timeModule-range-item" id="accTime">
+                            <div class="timeModule-range-left">
+                                <div class="timeModule-range-slider">
+                                    <div class="timeModule-range-slider-inner"></div>
+                                </div>
+                                <h2>Training accuracy</h2>
+                            </div>
+                            <div class="timeModule-range-right">
+                                <div class="timeModule-range-count"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="main-content-right">
+                <div class="chartModule main-content-frame">
+                    <div class="heartrate-wrap">
+                        <canvas id="myChart" width="300" height="300">
+                            Your browser does not support HTML5 canvas.
+                        </canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="main-bottom">
+            <div class="main-bottom-left">
+                <div id="testset_vis"></div>
+            </div>
+            <div class="main-bottom-right">
+                <div class="systemInfo">
+                    <div class="systemInfo-right">
+                        <div class="systemInfo-outerRing">
+                            <div class="systemInfo-spinner systemInfo-spinner_02"></div>
+                            <div class="systemInfo-innerRing">
+                                <div class="systemInfo-innerRing-count" id="systemInfo_fps">1024</div>
+                                <div class="systemInfo-innerRing-label">FPS</div>
+                            </div>
+                        </div>
+                        <div class="systemInfo-label">RENDER_SPEED</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

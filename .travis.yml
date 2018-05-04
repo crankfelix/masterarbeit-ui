@@ -1,0 +1,17 @@
+language: node_js
+os: linux
+dist: trusty
+sudo: false
+node_js: '8'
+branches:
+  only:
+  - master
+script: npm run build
+deploy:
+  provider: cloudfoundry
+  username: sap_cecpe@sap.com
+  password:
+    secure: Nd2G4hE5b2LHy1K4v54ys/xsGVLy1PpNZsMiqYXcj3I+7QVhVUges4L3/aBcCbnDMysiXExiTIVx+pkStsRY94QOyCdnEmS9saGKUaGc09SUf4OitnYmukBPzSfnZk94szCjhh4dFU/fQwlMJ4Smyk7jzg+i0+jqmaX8Ux4gQo082cGCW5MYjsg5ntzIPZ6UhN+92Mhm3UqUvClOY+hJZ+dahbEdgKDvq2ony+27TCvW6yzAgS8gtFg3vqWD9bJhG6AHp/eip43Es9L3u02zAl1nzbUYpjoyCxzo7MrE5lWSzwmU/4WAQGnT6uc4bNHVKEEqItTc4HCQ+TDCmacWm3tBifbU1rG5ReKYBMyA9rQpZNOUp23qxVo+0XRsxkwxpf6Ok5BToS/wmZeh6PB92hta958PC9TyqvgIwNsOGvILvGrHHgXzQJkSy7TIamxbIwV+sWlycm7CnHb2hIht8I13ZmXHAMPj5uFrOf7FIRIsgwzbwkqYkuD+24pieFw7LoVXZmDyXuZDahz86u27QtFKemZyExL0YcxsHWZScwg4y3sXwApXcAEyV15HNAIymH3XrzX7iCx9u77LLpl6WHBL8T/+DzgNuFrOH3RjZEaXk8e2TNhJB/tnAMnrcXUjIERr/b//2wRrJXCYB6u0Ck+wF5kie6+gTPT8yvyh2tA=
+  api: https://api.cf.eu10.hana.ondemand.com
+  organization: cec-ir-showcase
+  space: Smart-Mirror

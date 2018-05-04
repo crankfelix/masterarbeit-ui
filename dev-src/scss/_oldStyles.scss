@@ -1,0 +1,67 @@
+.layer {
+  border: 1px solid #999;
+  margin-bottom: 5px;
+  text-align: left;
+  padding: 10px;
+}
+.layer_act {
+  width: 500px;
+  float: right;
+}
+.ltconv {
+  background-color: #FDD;
+}
+.ltrelu {
+  background-color: #FDF;
+}
+.ltpool {
+  background-color: #DDF;
+}
+.ltsoftmax {
+  background-color: #FFD;
+}
+.ltfc {
+  background-color: #DFF;
+}
+.ltlrn {
+  background-color: #DFD; 
+}
+.ltdropout {
+  background-color: #AAA;  
+}
+.ltitle {
+  color: #333;
+  font-size: 18px;
+}
+
+#trainstats {
+  text-align: left;
+}
+.clear {
+  clear: both;
+}
+#wrap {
+  width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.secpart {
+  width: 400px;
+  float: left;
+}
+#lossgraph {
+  /*border: 1px solid #F0F;*/
+  width: 100%;
+}
+
+#testset_acc {
+  /* margin-bottom: 200px; */
+}
+#testset_vis {
+//  margin-bottom: 200px;
+}
+//body {
+//  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+//  background: #f1f1f1;
+//}

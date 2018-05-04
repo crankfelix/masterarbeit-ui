@@ -1,0 +1,18 @@
+.fw {
+	
+	&_300 {
+		font-weight: 300;
+	}
+	
+	&_400 {
+		font-weight: 400;
+	}	
+	
+	&_600 {
+		font-weight: 600;
+	}	
+}
+
+h2 {
+	font-size: get-vw(13px);
+}

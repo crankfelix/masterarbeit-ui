@@ -1,0 +1,33 @@
+<svg id="Credits.svg" xmlns="http://www.w3.org/2000/svg" width="205" height="14" viewBox="0 0 205 14">
+  <defs>
+    <style>
+      .cls-1, .cls-3 {
+        font-size: 12px;
+        font-family: Montserrat;
+      }
+
+      .cls-1, .cls-2, .cls-3 {
+        fill: #fff;
+      }
+
+      .cls-1 {
+        font-weight: 700;
+      }
+
+      .cls-2 {
+        fill-rule: evenodd;
+      }
+
+      .cls-3 {
+        font-weight: 300;
+      }
+
+      .cls-4 {
+        font-weight: 600;
+      }
+    </style>
+  </defs>
+  <text id="CREDITS" class="cls-1" transform="translate(0.19 12.496) scale(1.137 1.136)">CREDITS</text>
+  <path class="cls-2" d="M2252,174v-1h60v1h-60Z" transform="translate(-2183 -167)"/>
+  <text id="_478_500" data-name="478 / 500" class="cls-3" transform="translate(136.192 11.497) scale(1.137 1.136)">478 / <tspan class="cls-4">500</tspan></text>
+</svg>

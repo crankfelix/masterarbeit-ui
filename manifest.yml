@@ -1,0 +1,9 @@
+---
+buildpack: staticfile_buildpack
+name: Smart-Mirror-Train-UI
+host: smart-mirror-train-ui
+domain: cfapps.eu10.hana.ondemand.com
+memory: 64M
+disk_quota: 100M
+instances: 1
+path: ./demo

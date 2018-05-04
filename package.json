@@ -1,0 +1,28 @@
+{
+  "name": "smart-mirror-train-ui",
+  "version": "1.0.0",
+  "private": true,
+  "main": "gulpfile.js",
+  "scripts": {
+    "start": "gulp",
+    "build": "gulp build"
+  },
+  "author": "Artur Przysiecki",
+  "devDependencies": {
+    "babel-eslint": "^8.2.2",
+    "browser-sync": "^2.9.11",
+    "eslint": "^4.19.0",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.9.0",
+    "gulp": "^3.9.0",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-if": "^2.0.2",
+    "gulp-sass": "^2.0.4",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-uglify": "^1.4.2",
+    "gulp-util": "^3.0.7",
+    "yargs": "^8.0.2"
+  },
+  "dependencies": {}
+}
